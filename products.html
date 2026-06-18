@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+</head>
+<body>
+  <h1>Products</h1>
+  <div id="cart">Cart: <span id="cart-count">0</span> 
+<button onclick="localStorage.setItem('cart', JSON.stringify(cart)); window.location='checkout.html'">Checkout</button>
+  </div>
+  <div id="product-list"></div>
+  <script src="script.js"></script>
+</body>
+</html>

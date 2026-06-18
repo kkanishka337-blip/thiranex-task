@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout</title>
+</head>
+<body>
+  <h1>Checkout</h1>
+  <div id="checkout-list"></div>
+  <h2>Total: ₹<span id="total">0</span></h2>
+  <button onclick="alert('Order Placed!')">Place Order</button>
+  <br><br>
+  <a href="products.html">Back to Products</a>
+
+  <script>
+    const products = [
+      {id: 1, name: "Wireless Mouse", price: 499},
+      {id: 2, name: "Keyboard", price: 899},
+      {id: 3, name: "Headphones", price: 1299}
+    ];
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0;
+    let html = "";
+
+    if(cart.length == 0) {
+      html = "<p>Cart Empty bro!</p>";
+    } else {
+      cart.forEach(id => {
+        let p = products.find(x => x.id == id);
+        html += `<p>${p.name} - ₹${p.price}</p>`;
+        total += p.price;
+      });
+    }
+    
+    document.getElementById("checkout-list").innerHTML = html;
+    document.getElementById("total").innerText = total;
+  </script>
+</body>
+</html>
